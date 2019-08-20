@@ -4,15 +4,10 @@ on:
   push:
     branches:
     - master
-    tags:
-    - '!*'
-  pull_request:
-    paths:
-    - '*'
 
 jobs:
   test:
-    name: Test on node ${{ matrix.node }} and ${{ matrix.os }}
+    name: foo
     steps:
     - uses: actions/checkout@v1
     - name: foo
