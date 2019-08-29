@@ -10,4 +10,4 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Print Environment Version
-      run: env
+      run: echo $GITHUB_WORKSPACE
