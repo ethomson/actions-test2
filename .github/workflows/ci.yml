@@ -15,31 +15,14 @@ jobs:
         os:
         - ubuntu-latest
         - macos-latest
-        ruby:
-          - "1.9.3"
-          - "2.6.4"
-        gem:
-          - "no_dependencies"
-          - "sinatra"
 
-    name: Ruby ${{ matrix.ruby }} - ${{ matrix.gem }} on ${{ matrix.os }} test suite
+    name: Yo
     runs-on: ${{ matrix.os }}
-    container: ruby:1.9.3
     steps:
-    - uses: actions/checkout@master
-    - uses: actions/setup-ruby@v1
-      with:
-        ruby-version: ${{ matrix.ruby }}
-    - name: "Install bundle"
-      env:
-        BUNDLE_GEMFILE: gemfiles/${{ matrix.gem }}.gemfile
+    - name: "Everywhere"
+      run: echo hi
+    - name: "Linux"
       run: |
-        gem update --no-document --system
-        gem install bundler --force
-        bundle install --jobs 4 --retry 3
-    - name: "Install extension"
-      run: bundle exec rake extension:install
-    - name: "RSpec"
-      env:
-        BUNDLE_GEMFILE: gemfiles/${{ matrix.gem }}.gemfile
-      run: bundle exec rake test
+        echo hello
+        echo world
+      if: matrix.os != 'macOS-latest'
