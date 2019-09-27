@@ -12,9 +12,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # os:
-        #   - ubuntu-18.04
-        #   - macOS-10.14
+        os:
+        - ubuntu-latest
+        - macos-latest
         ruby:
           - "1.9.3"
           - "2.6.4"
